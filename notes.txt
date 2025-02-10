@@ -1,0 +1,78 @@
+bookmyspot 
+	SessionController
+		signup	
+		login
+		forgetpassword -> ForgetPassword.jsp ->add hyperlink for Login   
+igate 
+	SessionController 
+		signup
+		login 
+ecom 
+	SessionController 
+		signup
+		login 
+		
+
+Signup: 		
+	firstName
+	lastName
+	email
+	password
+	confirmPassword
+	gender
+	dateOfBirth***
+	contactNum
+	 	[submit] 
+ 
+Login:
+	email
+	password 
+		[submit] 
+ForgetPassword: 
+		email : 
+			[submit] 
+
+
+ER 
+DFD 
+USECASE 
+CLASS
+ACTIVITY 
+
+feature.doc 
+	signup
+	login
+	forgetpassword
+	parking add 
+	parking delete 
+	parking list 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
