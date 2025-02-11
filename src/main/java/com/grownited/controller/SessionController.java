@@ -25,4 +25,25 @@ public class SessionController {
 	public String saveUser() {
 		return "Login";//jsp
 	}
+	
+	//open forgetpassword jsp 
+	@GetMapping("/forgetpassword")
+	public String forgetPassword() {
+		return "ForgetPassword";
+	}
+
+	//submit on forgetpassword -> 
+	@PostMapping("sendOtp")
+	public String sendOtp() {
+		return "ChagePassword";
+	}
+	 
+	@PostMapping("updatepassword")
+	public String updatePassword() {
+		return "Login";
+	}
+	
+	
+	
 }
+
