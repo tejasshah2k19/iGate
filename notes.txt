@@ -48,15 +48,57 @@ feature.doc
 	parking list 
 	
 	
+----------------------------------------
+
+list logic 
+
+	1) controller -> @Getmapping("listmember")
+	2) public String listMember(){
+			return "ListMember";//jsp name 
+		} 	
+	3) create a jsp -> WEB-INF/views/ListMember.jsp 
+	
+	4) get all the data from database to controller 
+	   we will use repository -> finaAll() method 
+	    public String listMember(){
+		List<MemberEntity> memberList = repositoryMember.findAll(); // read all members from db to controller 
+			return "ListMember";//jsp name 
+		}
+	
+	5) how to send data from controller to jsp 
+		//Model 
+		model.addAttribute("memberList", memberList);
+						//dataName , dataValue 
+		
+		public String listMember(){
+		    List<MemberEntity> memberList = repositoryMember.findAll(); // read all members from db to controller 
+			model.addAttribute("memberList", memberList);
+			return "ListMember";//jsp name 
+		}
+		
+	6) get for loop print 
+		
 	
 	
 	
+---------------------------------------------------------------
+JSTL  java standard tag lib --> 
+	core********* 
+	sql
+	xml
+	fmt
+		core tag 
+				if** 
+				case 
+				catch 
+				out 
+				set
+				forEach** 
+				forToken
+				
+---------------------------------------------------------------				
 	
-	
-	
-	
-	
-	
+ 
 	
 	
 	
