@@ -27,8 +27,8 @@ public class VehicleController {
 	@PostMapping("savevehicle")
 	public String saveVehicle(VehicleEntity entityVehicle) {
 		repositoryVehicle.save(entityVehicle);// insert
-		
-		return "redirect:/listvehicle";//jsp name 
+
+		return "redirect:/listvehicle";// jsp name
 	}
 
 //	listvehicle 

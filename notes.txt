@@ -98,11 +98,24 @@ JSTL  java standard tag lib -->
 				
 ---------------------------------------------------------------				
 	
+ email --> Welcome mail -> Signup 
  
+ 
+ create service folder inside grownited folder 
+ 
+ 1) pom.xml jar file -> mail -> java mail 
+ 	project -> right click -> spring -> add/edit starter -> mail -> select -> next -> pom.xml ->
+ 		finish 
 	
 	
+ 2) mail -> gmail -> configuration -> 
+ 					application.properties {copy}
+ 					
+	https://myaccount.google.com/apppasswords
 	
-	
+3) code -> 
+		JavaMailSender [copy] 
+
 	
 	
 	
