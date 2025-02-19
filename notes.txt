@@ -118,7 +118,13 @@ JSTL  java standard tag lib -->
 
 	
 	
-	
+----------------------------------------------------
+
+how to encode password using bcrypt 
+
+1) pom.xml add spring security crypto lib 
+
+2) use bcrypt -> 	
 	
 	
 	

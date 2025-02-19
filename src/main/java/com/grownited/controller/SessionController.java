@@ -1,6 +1,7 @@
 package com.grownited.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +21,9 @@ public class SessionController {
 	// signup.jsp
 	@Autowired
 	UserRepository repositoryUser;
+	
+	@Autowired
+	PasswordEncoder encoder;
 
 	@GetMapping(value = { "/", "signup" }) // url
 	public String signup() {
@@ -33,6 +37,14 @@ public class SessionController {
 
 	@PostMapping("saveuser")
 	public String saveUser(UserEntity userEntity) {
+
+		 
+		String encPassword = encoder.encode(userEntity.getPassword());
+		userEntity.setPassword(encPassword);
+		 //memory 
+		//bcrypt singleton -> single object -> autowired
+		
+		userEntity.setRole("USER");
 		repositoryUser.save(userEntity);
 		// send mail
 		serviceMail.sendWelcomeMail(userEntity.getEmail(), userEntity.getFirstName());
