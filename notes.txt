@@ -122,11 +122,25 @@ JSTL  java standard tag lib -->
 
 how to encode password using bcrypt 
 
-1) pom.xml add spring security crypto lib 
+1) pom.xml add spring security crypto lib [from google - maven ] 
 
-2) use bcrypt -> 	
+2) now make your encoder singleton ready 
+	put below code in your main java file where @SpringBootApplication written
+	@Bean
+	PasswordEncoder encoder() {
+		return new BCryptPasswordEncoder(5);
+	}
 	
+3) now create object using @Autowired and use in the method 
+	//object creation 
+	@Autowired
+	PasswordEncoder encoder;
 	
+	//use 
+	String encPassword = encoder.encode(userEntity.getPassword());
+	userEntity.setPassword(encPassword);	
+	
+---------------------------------------------------------------------	
 	
 	
 	
