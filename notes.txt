@@ -142,6 +142,52 @@ how to encode password using bcrypt
 	
 ---------------------------------------------------------------------	
 	
+	signup -> plain text -> encrypt ->
+			Bcrypt ->
+						spring-security-crypto
+						pom.xml-> manually 
+						
+			PasswordEncoder->singleton 
+			Application.java -> @SpringBootApplication
+			
+			@Bean 
+			PasswordEncoder getEncoder(){
+			 	return new BcryptPasswordEncoder(); 
+			}
+	
+			@Autowired 
+			PasswordEncoder encoder;
+	
+	
+			String ecryptedString = encoder.encode("plain");
+---------------------------------------------------------------------	
+
+create -> db save - > save(entity)
+read   -> db select get all  [select * from users ] -> findAll()  
+single read -> findById(memberId)
+
+CRUD -> create read update delete 
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
