@@ -168,6 +168,13 @@ single read -> findById(memberId)
 
 CRUD -> create read update delete 
 
+----------------------------------------------------------
+
+	Form 
+Login.jsp 
+		email
+		password 
+		
 	
 	
 	
