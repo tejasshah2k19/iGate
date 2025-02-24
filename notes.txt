@@ -180,7 +180,20 @@ Login.jsp
 	
 	
 	
+	webapp --> information -->
+				session {otp}{pr,sec} {user info} 
+				cookie {username,city,zipcode} 
+				
+				
+	how to create session ?	
+	public String authenticate(String email, String password,Model model,HttpSession session) 
+
+
+	how to store user's information in session?
+	session.setAttribute("key",value);
 	
+				
+				
 	
 	
 	
