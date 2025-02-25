@@ -10,7 +10,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class IGateApplication {
 
 	public static void main(String[] args) {
+	 
 		SpringApplication.run(IGateApplication.class, args);
+
 	}
 
 	@Bean

@@ -11,6 +11,8 @@
 Welcome , ${user.firstName}
 <br>
 <a href="logout">Logout</a> 
+<br>
+<a href="newstate">Add State</a>
 
 </body>
 </html>
