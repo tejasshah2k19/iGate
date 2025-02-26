@@ -8,8 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.entity.UserEntity;
 import com.grownited.entity.VehicleEntity;
 import com.grownited.repository.VehicleRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class VehicleController {
@@ -25,7 +28,14 @@ public class VehicleController {
 
 //	savevehicle 
 	@PostMapping("savevehicle")
-	public String saveVehicle(VehicleEntity entityVehicle) {
+	public String saveVehicle(VehicleEntity entityVehicle, HttpSession session) {
+
+		UserEntity user = (UserEntity)session.getAttribute("user");//Object
+		Integer userId = user.getUserId();
+		
+		entityVehicle.setUserId(userId);
+
+		
 		repositoryVehicle.save(entityVehicle);// insert
 
 		return "redirect:/listvehicle";// jsp name

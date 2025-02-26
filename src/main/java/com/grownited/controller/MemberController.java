@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.grownited.entity.MemberEntity;
+import com.grownited.entity.UserEntity;
 import com.grownited.repository.MemberRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
@@ -24,7 +27,12 @@ public class MemberController {
 	}
 
 	@PostMapping("savemember")
-	public String saveMember(MemberEntity entityMember) {
+	public String saveMember(MemberEntity entityMember, HttpSession session) {
+
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId(); 
+		entityMember.setUserId(userId);
+		
 		repositoryMember.save(entityMember);
 		return "NewMember";
 	}
@@ -58,16 +66,11 @@ public class MemberController {
 
 		return "ViewMember";
 	}
-	
+
 	@GetMapping("deletemember")
 	public String deleteMember(Integer memberId) {
-		repositoryMember.deleteById(memberId);//delete from members where memberID = :memberId
+		repositoryMember.deleteById(memberId);// delete from members where memberID = :memberId
 		return "redirect:/listmember";
 	}
-	
-	
-	
-	
-	
 
 }
