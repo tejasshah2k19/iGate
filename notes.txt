@@ -192,11 +192,44 @@ Login.jsp
 	how to store user's information in session?
 	session.setAttribute("key",value);
 	
+--------------------------------------------------------------------------
+
+pagination ->
+		client side ->
+				datatable 
+				
+	
+	1) jquery.js    -> this is dependent file for datatable.js 
+					-> you will get it from your template
+					-> official website 
+					<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+					
+	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
+					
+					 
+				
+	2) datatable.js -> you will get it from your template 
+				    -> official website 
+				    
+				    						
+	3) datatable.css -> you will get it from your template
+			   	     -> official website 
+			   	 	    <link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+			   	     
+			   	      	
+	4) assign id to your table 
+				<table id="myTable" >
 				
 				
-	
-	
-	
+	5)  initialize data table using below code ->
+			<script type="text/javascript">
+				$( document ).ready(function() {
+					let table = new DataTable('#myTable');
+				});					
+			</script> 
+			
+----------------------------------------------------------------------
 	
 	
 	

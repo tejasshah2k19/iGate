@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.grownited.dto.CityDto;
 import com.grownited.entity.CityEntity;
 import com.grownited.entity.StateEntity;
 import com.grownited.repository.CityRepository;
@@ -18,7 +19,7 @@ public class CityController {
 
 	@Autowired
 	StateRepository repositoryState;
-	
+
 	@Autowired
 	CityRepository repositoryCity;
 
@@ -26,8 +27,8 @@ public class CityController {
 	public String newCity(Model model) {
 		// select * from state;
 		List<StateEntity> allState = repositoryState.findAll();// all state
-		
-		model.addAttribute("allState",allState);
+
+		model.addAttribute("allState", allState);
 		return "NewCity";
 	}
 
@@ -36,22 +37,13 @@ public class CityController {
 		repositoryCity.save(entityCity);
 		return "redirect:/newcity";
 	}
-	
+
+	@GetMapping("listcity")
+	public String listCity(Model model) {
+//		List<CityDto> allCity = repositoryCity.getAll();
+
+		model.addAttribute("allCity", repositoryCity.getAll());
+		return "ListCity";
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

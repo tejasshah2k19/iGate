@@ -7,21 +7,12 @@
   <!--begin::Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>AdminLTE 4 | Login Page</title>
+    <title>AdminLTE 4 | Login </title>
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="AdminLTE 4 | Login Page" />
-    <meta name="author" content="ColorlibHQ" />
-    <meta
-      name="description"
-      content="AdminLTE is a Free Bootstrap 5 Admin Dashboard, 30 example pages using Vanilla JS."
-    />
-    <meta
-      name="keywords"
-      content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard"
-    />
-    <!--end::Primary Meta Tags-->
-    <!--begin::Fonts-->
+  
+   
+ <!--begin::Fonts-->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.0.12/index.css"
@@ -54,7 +45,7 @@
   <body class="login-page bg-body-secondary">
     <div class="login-box">
       <div class="login-logo">
-        <a href="../index2.html"><b>Admin</b>LTE</a>
+        <a href="../index2.html"><b>i</b>Gate</a>
       </div>
       <!-- /.login-logo -->
       <div class="card">
@@ -92,17 +83,17 @@
           
           <div class="social-auth-links text-center mb-3 d-grid gap-2">
             <p>- OR -</p>
-            <a href="#" class="btn btn-primary">
-              <i class="bi bi-facebook me-2"></i> Sign in using Facebook
+            <a href="signup" class="btn btn-primary">
+              <i class="bi me-2"></i> Register a new membership
             </a>
-            <a href="#" class="btn btn-danger">
+            <!-- <a href="#" class="btn btn-danger">
               <i class="bi bi-google me-2"></i> Sign in using Google+
-            </a>
+            </a> -->
           </div>
           <!-- /.social-auth-links -->
           <p class="mb-1"><a href="forgetpassword">I forgot my password</a></p>
           <p class="mb-0">
-            <a href="signup" class="text-center"> Register a new membership </a>
+            <a href="signup" class="text-center">  </a>
           </p>
         </div>
         <!-- /.login-card-body -->

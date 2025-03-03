@@ -1,43 +1,46 @@
-package com.grownited.entity;
+package com.grownited.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+public class CityDto {
 
-@Entity
-@Table(name = "cities")
-public class CityEntity {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer cityId;
 	private String cityName;
 	private Integer stateId;
+	private String stateName;
 	
+	
+	
+	public CityDto(Integer cityId, String cityName, Integer stateId, String stateName) {
+		super();
+		this.cityId = cityId;
+		this.cityName = cityName;
+		this.stateId = stateId;
+		this.stateName = stateName;
+	}
 	public Integer getCityId() {
 		return cityId;
 	}
-
 	public void setCityId(Integer cityId) {
 		this.cityId = cityId;
 	}
-
 	public String getCityName() {
 		return cityName;
 	}
-
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
-
 	public Integer getStateId() {
 		return stateId;
 	}
-
 	public void setStateId(Integer stateId) {
 		this.stateId = stateId;
 	}
+	public String getStateName() {
+		return stateName;
+	}
+	public void setStateName(String stateName) {
+		this.stateName = stateName;
+	}
+	
+	
 
 }
