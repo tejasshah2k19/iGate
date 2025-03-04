@@ -30,4 +30,21 @@ public class MailService {
 
 	}
 
+	public void sendOtpForForgetPassword(String email, String firstName,String otp) {
+		String subject = "OTP for Resetpassword";
+		String body = "Hey " + firstName
+				+ ", It seems you have request for forget password, please use below otp for reset password.  If not then simply ignore the message!OTP:"+otp;
+		String from = "tejasshah2k19@gmail.com";
+
+		// logic
+		SimpleMailMessage message = new SimpleMailMessage();
+
+		message.setFrom(from);
+		message.setTo(email);
+		message.setSubject(subject);
+		message.setText(body);
+
+		mailSender.send(message);
+
+	}
 }

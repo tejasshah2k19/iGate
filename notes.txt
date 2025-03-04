@@ -232,6 +232,31 @@ pagination ->
 ----------------------------------------------------------------------
 	
 	
+	FORGET PASSWORD :-> 
+	
+	
+	user will click on forget password hyper link from login jsp 
+	
+	forgetpassword : url : Open ForgetPassword.jsp 
+	
+	In ForgetPassword.jsp We will ask email 
+	
+	on Submit of ForgetPassword.jsp it will call @Postmapping-> sendotp 
+	
+	send otp will read email and then it call findByEmail to check email is present or not 
+	if present then we will get the user , generate the otp , set otp to the user object 
+		and we will update using repositoryUser.save(user). 
+		and then we will send mail using MailService. 
+		and last we return ChagePassword.jsp 
+	if not present then we will set error using model.addAttribute and then 
+			open the ForgetPassword.jsp and display the error message. 
+			
+---------------------------------------------------------------
+			
+			
+			
+			
+			
 	
 	
 	
