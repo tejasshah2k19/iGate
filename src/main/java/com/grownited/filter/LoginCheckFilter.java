@@ -52,6 +52,7 @@ public class LoginCheckFilter implements Filter {
 			if (user == null) {
 					req.getRequestDispatcher("login").forward(request, response);			
 			}else {
+				
 				chain.doFilter(request, response);//go ahead 
 			}
 		}
