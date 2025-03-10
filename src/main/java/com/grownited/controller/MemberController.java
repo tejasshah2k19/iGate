@@ -30,9 +30,9 @@ public class MemberController {
 	public String saveMember(MemberEntity entityMember, HttpSession session) {
 
 		UserEntity user = (UserEntity) session.getAttribute("user");
-		Integer userId = user.getUserId(); 
+		Integer userId = user.getUserId();
 		entityMember.setUserId(userId);
-		
+
 		repositoryMember.save(entityMember);
 		return "NewMember";
 	}
@@ -71,6 +71,14 @@ public class MemberController {
 	public String deleteMember(Integer memberId) {
 		repositoryMember.deleteById(memberId);// delete from members where memberID = :memberId
 		return "redirect:/listmember";
+	}
+
+	@GetMapping("mymembers")
+	public String myMembers(HttpSession session, Model model) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		List<Object[]> allMember = repositoryMember.getAll(user.getUserId());
+		model.addAttribute("allMember",allMember);
+		return "MyMembers";
 	}
 
 }

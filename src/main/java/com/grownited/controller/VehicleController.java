@@ -44,8 +44,8 @@ public class VehicleController {
 //	listvehicle 
 	@GetMapping("listvehicle")
 	public String listVehicle(Model model) {
-		List<VehicleEntity> listVehicle = repositoryVehicle.findAll(); // select *
-		model.addAttribute("listVehicle", listVehicle);
+		List<Object[]> listVehicle = repositoryVehicle.getAll(); // select *
+		model.addAttribute("allVehicle", listVehicle);
 		return "ListVehicle";
 	}
 }

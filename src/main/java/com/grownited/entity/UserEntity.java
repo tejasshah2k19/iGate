@@ -18,7 +18,8 @@ public class UserEntity {
 	private String email;
 	private String password;
 	private String contactNum;
-	private String city;
+	private Integer cityId;
+	private Integer stateId;
 	private String bornYear;
 	private String gender;
 	private String role;// member,security,chairman,admin
@@ -72,14 +73,7 @@ public class UserEntity {
 		this.contactNum = contactNum;
 	}
 
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
+ 
 	public String getBornYear() {
 		return bornYear;
 	}
@@ -111,5 +105,22 @@ public class UserEntity {
 	public void setOtp(String otp) {
 		this.otp = otp;
 	}
+
+	public Integer getCityId() {
+		return cityId;
+	}
+
+	public void setCityId(Integer cityId) {
+		this.cityId = cityId;
+	}
+
+	public Integer getStateId() {
+		return stateId;
+	}
+
+	public void setStateId(Integer stateId) {
+		this.stateId = stateId;
+	}
+	
 
 }

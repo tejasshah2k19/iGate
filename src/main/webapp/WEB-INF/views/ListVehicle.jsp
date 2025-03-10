@@ -18,12 +18,16 @@
 			<th>ParkingCode</th>
 			<th>VehicleNo</th>
 			<th>VehicleType</th>
+			<th>FirstName</th>
+			<th>LastName</th>
 		</tr>
-		<c:forEach items="${listVehicle}" var="v">
+		<c:forEach items="${allVehicle}" var="v">
 			<tr>
-				<td>${v.parkingCode}</td>
-				<td>${v.vehicleNo}</td>
-				<td>${v.vehicleType}</td>
+				<td>${v[1]}</td>
+				<td>${v[3]}</td>
+				<td>${v[4]}</td>
+				<td>${v[5]}</td>
+				<td>${v[6]}</td>
 			</tr>
 		</c:forEach>
 
