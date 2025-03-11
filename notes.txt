@@ -253,11 +253,77 @@ pagination ->
 			
 ---------------------------------------------------------------
 			
+	signup -->
+			first name 
+			email
+			password 
+			
+			pofilePic 
+			
+			
+	file upload ->  		
+					project -> pdf , doc , excel - any file 
+					image -> signup -> profilePic 
+					
+					store?
+					1) web server / database 
+					2) cloud {file,image,assets}
+								
+			
+1) cloud -> signup -> login -> credentials 
+2) file upload java 
+		Signup.jsp 
+			form -> method="post"
+					encType="multipart/form-data"
+			input type="file" name="profilePic"				
+			
+3) controller -> read file 
+			do not use entity 
+			MultiPartFile	   profilePic;	 					
+				
+4) cloud -> 
+		4.1)  cloud lib --> pom.xml  
+		4.2)  singleton -> Cloud -> @Bean -> XXXApplication.java
+		4.3)  @Autowired -> upload -> code 
 			
 			
 			
-			
+		<dependency>
+			<groupId>com.cloudinary</groupId>
+			<artifactId>cloudinary-http44</artifactId>
+			<version>1.33.0</version>
+		</dependency>
+
+
+
+	@Bean
+	Cloudinary cloudinary() {
+		Map<String, String> config = ObjectUtils.asMap("cloud_name", "dzko8yjs6", "api_key", "812235955324293",
+				"api_secret", "myUUXHnsXifcK0DyinTVjQKan_U");
+		return new Cloudinary(config);
+	}
+
 	
+	
+	method="post"
+	enctype="multipart/form-data"
+	input type="file" name="profilePic"
+	
+	(UserEntity user,MultipartFile profilePic)
+
+
+	@Autowired
+	private Cloudinary cloudinary;
+
+
+	Map uploadResult = cloudinary.uploader().upload(profilePic.getBytes(), ObjectUtils.emptyMap());
+	String profileURL = uploadResult.get("url").toString();
+	userEntity.setProfilePicPath(profileURL);
+	userRepository.save(userEntity);
+    
+ 
+	
+------------------------------------------------------------------------------------------------
 	
 	
 	

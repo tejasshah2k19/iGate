@@ -40,7 +40,7 @@ public class LoginCheckFilter implements Filter {
 		String url = req.getRequestURL().toString();
 		String uri = req.getRequestURI();
 
-		System.out.println("Filter Call....." + uri);
+		//System.out.println("Filter Call....." + uri);
 
 		
 		if (publicURL.contains(uri) || uri.contains(".css") || uri.contains(".js") || uri.contains("dist") || uri.contains("images")) {

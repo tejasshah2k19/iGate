@@ -24,6 +24,7 @@ public class UserEntity {
 	private String gender;
 	private String role;// member,security,chairman,admin
 	private String otp; 
+	private String profilePicPath;
 	
 	public Integer getUserId() {
 		return userId;
@@ -120,6 +121,14 @@ public class UserEntity {
 
 	public void setStateId(Integer stateId) {
 		this.stateId = stateId;
+	}
+
+	public String getProfilePicPath() {
+		return profilePicPath;
+	}
+
+	public void setProfilePicPath(String profilePicPath) {
+		this.profilePicPath = profilePicPath;
 	}
 	
 

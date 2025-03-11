@@ -42,8 +42,9 @@
 </head>
 <!--end::Head-->
 <!--begin::Body-->
-<body class="register-page bg-body-secondary" style="background: images/bgBuilding.jpg">
-	<div >
+<body class="register-page bg-body-secondary"
+	style="background: images/bgBuilding.jpg">
+	<div>
 		<div class="register-box">
 			<div class="register-logo">
 				<a href="signup"><b>i</b>Gate</a>
@@ -53,7 +54,7 @@
 				<div class="card-body register-card-body">
 					<p class="register-box-msg">Register</p>
 
-					<form action="saveuser" method="post">
+					<form action="saveuser" method="post" enctype="multipart/form-data">
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" name="firstName"
 								placeholder="FirstName" />
@@ -114,6 +115,16 @@
 								class="custom-control-label">Female</label>
 
 						</div>
+
+
+						<div class="input-group mb-3">
+							<input type="file" class="form-control" placeholder="Profile"
+								name="profilePic" />
+							<div class="input-group-text">
+								<span class="bi bi-cake"></span>
+							</div>
+						</div>
+
 
 						<br>
 						<!--begin::Row-->
