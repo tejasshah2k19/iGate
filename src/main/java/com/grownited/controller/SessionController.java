@@ -48,18 +48,18 @@ public class SessionController {
 		return "Login";// jsp name
 	}
 
-	//Integer 
-	//String 
-	//Character 
-	//Boolean 
-	//MultipartFile   file
-	
+	// Integer
+	// String
+	// Character
+	// Boolean
+	// MultipartFile file
+
 	@PostMapping("saveuser")
 	public String saveUser(UserEntity userEntity, MultipartFile profilePic) {
 
 		System.out.println(profilePic.getOriginalFilename());// file name
 		// cloud->
-		
+
 //		if(profilePic.getOriginalFilename().endsWith(".jpg") || || || ) {
 //			
 //		}else {
@@ -69,8 +69,8 @@ public class SessionController {
 //		}
 		try {
 			Map result = cloudinary.uploader().upload(profilePic.getBytes(), ObjectUtils.emptyMap());
-			//System.out.println(result);
-			//System.out.println(result.get("url"));
+			// System.out.println(result);
+			// System.out.println(result.get("url"));
 			userEntity.setProfilePicPath(result.get("url").toString());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -83,10 +83,18 @@ public class SessionController {
 		// bcrypt singleton -> single object -> autowired
 
 		userEntity.setRole("USER");
-		 repositoryUser.save(userEntity);
+		repositoryUser.save(userEntity);
 		// send mail
-		// serviceMail.sendWelcomeMail(userEntity.getEmail(),
 		// userEntity.getFirstName());
+
+		Thread t = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				// serviceMail.sendWelcomeMail(userEntity.getEmail(),
+			}
+		});
+		t.start();
+		
 		return "Login";// jsp
 	}
 
