@@ -1,0 +1,272 @@
+
+
+1) add jquery js in jsp inside head tag 
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+	crossorigin="anonymous"></script>
+	
+	
+2) 
+				<select id="category"
+				name="categoryId" required onchange="getSubCategory()">
+				<option value="-1">Select Category</option>
+				<c:forEach var="category" items="${categories}">
+					<option value="${category.categoryId}">${category.categoryName}</option>
+				</c:forEach>
+			</select> 
+			
+			<label for="subCategory">Sub-Category:</label> <select
+				id="subCategory" name="subCategoryId">
+						<option value="-1">Select SubCategory</option>
+			</select>
+			
+3) at the end of jsp add below code 
+
+ <script type="text/javascript">
+
+	function getSubCategory(){
+		console.log("category Change");
+		let categoryId = document.getElementById("category").value;
+		console.log(categoryId);	
+		//url -> json REST 
+		
+		  $.get( "getallsubcategorybycategoryid/"+categoryId, function() {
+			})
+			  .done(function(data) {
+			    console.log(data);
+			    //fill the subcategory 
+			    $('#subCategory').empty().append('<option selected="selected" value="-1">Select SubCategory</option>')
+			    
+			    for (var i = 0; i < data.length; i++) {
+      			  $('#subCategory').append('<option value="' + data[i].subCategoryId + '">' + data[i].subCategoryName + '</option>');
+   				 }
+			    
+			  })
+			  .fail(function() {
+			    alert( "error" );
+			  })
+			  
+		
+	}
+
+
+</script> 
+
+-------------------------------------------------------------------------------------
+Add product.jsp 
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Product</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 20px;
+}
+
+.container {
+	max-width: 600px;
+	background: #fff;
+	padding: 20px;
+	margin: 0 auto;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 8px;
+}
+
+h2 {
+	text-align: center;
+}
+
+label {
+	font-weight: bold;
+	display: block;
+	margin: 10px 0 5px;
+}
+
+input, select, textarea {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+input[type="file"] {
+	padding: 5px;
+}
+
+button {
+	width: 100%;
+	padding: 10px;
+	background: #28a745;
+	border: none;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 4px;
+}
+
+button:hover {
+	background: #218838;
+}
+</style>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+	integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<h2>Add New Product</h2>
+		<form action="saveProduct" method="post" enctype="multipart/form-data">
+			<label for="productName">Product Name:</label> <input type="text"
+				id="productName" name="productName" required> <label
+				for="category">Category:</label> 
+				
+				
+				<select id="category"
+				name="categoryId" required onchange="getSubCategory()">
+				<option value="-1">Select Category</option>
+				<c:forEach var="category" items="${categories}">
+					<option value="${category.categoryId}">${category.categoryName}</option>
+				</c:forEach>
+			</select> 
+			
+			
+			
+			
+			
+			<label for="subCategory">Sub-Category:</label> <select
+				id="subCategory" name="subCategoryId">
+						<option value="-1">Select SubCategory</option>
+		
+
+			</select> <label for="basePrice">Base Price:</label> <input type="number"
+				step="0.01" id="basePrice" name="basePrice" required> <label
+				for="offerePrice">Offer Price:</label> <input type="number"
+				step="0.01" id="offerePrice" name="offerePrice"> <label
+				for="offerePercentage">Offer Percentage:</label> <input
+				type="number" step="0.01" id="offerePercentage"
+				name="offerePercentage"> <label for="productDetail">Product
+				Detail:</label>
+			<textarea id="productDetail" name="productDetail"></textarea>
+
+			<label for="quantity">Quantity:</label> <input type="number"
+				id="quantity" name="quantity" required> <label
+				for="createdBy">Created By:</label> <select id="createdBy"
+				name="createdBy" required>
+				<c:forEach var="user" items="${users}">
+					<option value="${user.userId}">${user.firstName}${user.lastName}</option>
+				</c:forEach>
+			</select> <label for="productImage1">Product Image 1:</label> <input
+				type="file" id="productImage1" name="file1"> <label
+				for="productImage2">Product Image 2:</label> <input type="file"
+				id="productImage2" name="file2"> <label for="productImage3">Product
+				Image 3:</label> <input type="file" id="productImage3" name="file3">
+
+			<button type="submit">Save Product</button>
+		</form>
+	</div>
+	
+<script type="text/javascript">
+
+	function getSubCategory(){
+		console.log("category Change");
+		let categoryId = document.getElementById("category").value;
+		console.log(categoryId);	
+		//url -> json REST 
+		
+		  $.get( "getallsubcategorybycategoryid/"+categoryId, function() {
+			})
+			  .done(function(data) {
+			    console.log(data);
+			    //fill the subcategory 
+			    $('#subCategory').empty().append('<option selected="selected" value="-1">Select SubCategory</option>')
+			    
+			    for (var i = 0; i < data.length; i++) {
+      			  $('#subCategory').append('<option value="' + data[i].subCategoryId + '">' + data[i].subCategoryName + '</option>');
+   				 }
+			    
+			  })
+			  .fail(function() {
+			    alert( "error" );
+			  })
+			  
+		
+	}
+
+
+</script>	
+	
+</body>
+</html>
+------------------------------------------------------------------------------------------------------
+
+
+create restcontroller 
+
+@RestController
+public class AjaxController {
+
+	@Autowired
+	SubCategoryRepository subCategoryRepository; 
+	
+	
+	@GetMapping("/getallsubcategorybycategoryid/{categoryId}")
+	public List<SubCategoryEntity> getAllSubCateByCatId(@PathVariable Integer categoryId) {
+		System.out.println(categoryId);
+		
+		List<SubCategoryEntity> allSubCategory  =  subCategoryRepository.findByCategoryId(categoryId);
+			
+		
+		return allSubCategory;
+	}
+
+}
+
+
+---------------------------------------------------------------------
+SubCategoryRepository 
+
+
+public interface SubCategoryRepository extends JpaRepository<SubCategoryEntity,Integer> {
+
+	List<SubCategoryEntity> findByCategoryId(Integer categoryId);
+	
+}
+
+---------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
